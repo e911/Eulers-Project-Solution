@@ -1,10 +1,14 @@
-from functools import reduce
-b=[]
-a=20
-for i in range(2,a):
-	if all(i%a!=0 for a in range(2,i//2)):
-		b.append(i)
-print(b)
-z= reduce(lambda x, y: x*y,b)
+check_list = [11, 13, 14, 16, 17, 18, 19, 20]
 
-print(z)
+def find_solution(step):
+    for num in range(step, 999999999, step):
+        if all(num % n == 0 for n in check_list):
+            return num
+    return None
+
+if __name__ == '__main__':
+    solution = find_solution(20)
+    if solution:
+    	print(solution)
+    else:
+    	print('Solution not found')	
