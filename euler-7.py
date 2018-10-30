@@ -26,7 +26,7 @@ print("found %s in %s seconds." % (prime,elapsed))
 def prime_nth():
     c=[]
     for i in range(2,125000):
-        if all(i%a!=0 for a in range(2,i)):
+        if all(i%a!=0 for a in range(2,i//2+1)):
             c.append(i)
         if len(c)==10001:
             break;
