@@ -1,7 +1,15 @@
+import math
 import time
 
 def sum_of_divisors(num):
-    return sum([fact for fact in range(1, num) if num % fact == 0])
+    sum_t = 1
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if (num % i == 0):
+            sum_t += i
+            sum_t += num / i
+    return sum_t
+    #brute method
+    # return sum([fact for fact in range(1, num) if num % fact == 0])
 
 
 def amicable(n):
