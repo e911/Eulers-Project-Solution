@@ -3,7 +3,9 @@ import time
 
 def sum_of_divisors(num):
     sum_t = 1
-    for i in range(2, int(math.sqrt(num)) + 1):
+    # a step to ignore iteration of even integer for odd numbers
+    step = 1 if num%2==0 else 2
+    for i in range(2, int(math.sqrt(num)) + 1, step):
         if (num % i == 0):
             sum_t += i
             sum_t += num / i
