@@ -5,19 +5,21 @@
 
 # ['3', '4 5', '6 7 8']
 def find_max_sum_of_tree_nodes(tree):
-	list_each_line = tree.split('\n')
+    list_each_line = tree.split('\n')
 
-	# [['3'], ['4', '5'], ['6', '7', '8']]
-	list_each_node_in_line =list(map(lambda x: x.split(' '),list_each_line))
+    # [['3'], ['4', '5'], ['6', '7', '8']]
+    list_each_node_in_line = list(map(lambda x: x.split(' '), list_each_line))
 
-	for x in range(len(list_each_node_in_line)-1,-1,-1):
-		for y in range(0,x):
-			list_each_node_in_line[x-1][y]=int(list_each_node_in_line[x-1][y])+max(int(list_each_node_in_line[x][y]),int(list_each_node_in_line[x][y+1]))
-	#sun is in the first element of first list
-	return list_each_node_in_line[0][0]
+    for x in range(len(list_each_node_in_line) - 1, -1, -1):
+        for y in range(0, x):
+            list_each_node_in_line[x - 1][y] = int(list_each_node_in_line[x - 1][y]) + max(
+                int(list_each_node_in_line[x][y]), int(list_each_node_in_line[x][y + 1]))
+    # sun is in the first element of first list
+    return list_each_node_in_line[0][0]
 
-if __name__=='__main__':
-	tree='''75
+
+if __name__ == '__main__':
+    tree = '''75
 		95 64
 		17 47 82
 		18 35 87 10
@@ -33,5 +35,5 @@ if __name__=='__main__':
 		63 66 04 68 89 53 67 30 73 16 69 87 40 31
 		04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'''
 
-	max_sum = find_max_sum_of_tree_nodes(tree)
-	print(max_sum)
+    max_sum = find_max_sum_of_tree_nodes(tree)
+    print(max_sum)
